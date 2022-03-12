@@ -93,6 +93,10 @@ function addPagesToPageManager(_pageManager, _pages) {
         var bs1116PageManager = new BS1116PageManager();
         bs1116PageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, audioContext, config.bufferSize, audioFileLoader, session, errorHandler, config.language);
         bs1116PageManager = null;
+      } else if (pageConfig.type == "NES") {
+        var nesPageManager = new NESPageManager();
+        nesPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, audioContext, config.bufferSize, audioFileLoader, session, errorHandler, config.language);
+        nesPageManager = null;
       } else if (pageConfig.type == "likert_single_stimulus") {
         var likertSingleStimulusPageManager = new LikertSingleStimulusPageManager();
         likertSingleStimulusPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, audioContext, config.bufferSize, audioFileLoader, session, errorHandler, config.language);

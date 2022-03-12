@@ -182,6 +182,51 @@ if ($write_bs1116) {
 	fclose($fp);
 }
 
+// NES
+
+$write_bs1116 = false;
+$bs1116CsvData = array();
+
+$input = array("session_test_id");
+for($i =0; $i < $length; $i++){
+	array_push($input, $session->participant->name[$i]);
+}
+array_push($input,  "trial_id", "rating_reference", "rating_non_reference", "rating_reference_score", "rating_non_reference_score", "rating_time", "choice_comment");
+array_push($bs1116CsvData, $input);
+
+// array_push($bs1116CsvData, array("session_test_id", "participant_email", "participant_age", "participant_gender", "trial_id", "rating_reference", "rating_non_reference", "rating_reference_score", "rating_non_reference_score", "rating_time", "choice_comment"));
+foreach ($session->trials as $trial) {
+  if ($trial->type == "NES") {
+	  foreach ($trial->responses as $response) {	  	
+	  	$write_bs1116 = true;
+		  
+		$results = array($session->testId);
+		for($i =0; $i < $length; $i++){
+			array_push($results, $session->participant->response[$i]);
+		}  
+		array_push($results, $trial->id, $response->reference, $response->nonReference, $response->referenceScore, $response->nonReferenceScore, $response->time, $response->comment);
+	  
+	  	array_push($bs1116CsvData, $results); 
+		  
+	    // array_push($bs1116CsvData, array($session->testId, $session->participant->email, $session->participant->age, $session->participant->gender, $trial->id, $response->reference, $response->nonReference, $response->referenceScore, $response->nonReferenceScore, $response->time, $response->comment));    
+	  }
+  }
+}
+
+if ($write_bs1116) {
+	$filename = $filepathPrefix."NES".$filepathPostfix;
+	$isFile = is_file($filename);
+	$fp = fopen($filename, 'a');
+	foreach ($bs1116CsvData as $row) {
+		if ($isFile) {	    	
+			$isFile = false;
+		} else {
+		   fputcsv($fp, $row);
+		}
+	}
+	fclose($fp);
+}
+
 //lms
 
 $write_lms = false;
