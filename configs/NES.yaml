@@ -1,0 +1,30 @@
+# test config bs11.16 page, waveform, 11 conditions, no looping
+
+
+testname: NES
+testId: nes
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: true
+remoteService: service/write.php
+language: ja
+
+
+pages:
+
+    - type: NES
+      id: trial2
+      name: test
+      content: test description
+      createAnchor35: false
+      createAnchor70: false
+      stimuli_num: 1
+      stimuli: configs/resources/audio
+      test_len: 20
+
+
+    - type: finish
+      name: Thank you
+      content: Thank you for attending
+      showResults: true
+      writeResults: true
