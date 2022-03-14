@@ -15,16 +15,24 @@ pages:
     - type: NES
       id: trial2
       name: test
-      content: test description
+      content: "二つの音声A,Bを聞いてその自然さを評価してください．<br>
+                自然さに差がある場合は評価に差をつけてください．<br>
+                問題は全23問です．<br>
+                最初の3問は練習用の問題です．"
+
+      enableLooping: true 
       createAnchor35: false
       createAnchor70: false
-      stimuli_num: 1
-      stimuli: configs/resources/audio
+      dummy: exp/test1/dummy
+      dummy_len: 3
+      stimuli: exp/test1/var_3
+      stimuli_num: 100
+      perturbation_num: 5
       test_len: 20
 
 
     - type: finish
-      name: Thank you
-      content: Thank you for attending
+      name: お疲れさまでした
+      content: 結果をコピーして回答してください
       showResults: true
       writeResults: true
