@@ -13,7 +13,7 @@ language: ja
 pages:
 
     - type: NES
-      id: trial2
+      id: trial3
       name: test
       content: "二つの音声A,Bを聞いてその自然さを評価してください．<br>
                 自然さに差がある場合は評価に差をつけてください．<br>
