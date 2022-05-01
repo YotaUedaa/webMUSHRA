@@ -26,7 +26,7 @@ pages:
       dummy: exp/test1/dummy
       dummy_len: 3
       stimuli: exp/test1/var_5_active_sigma_500/wav
-      stimuli_num: 100
+      stimuli_num: 500
       perturbation_num: 5
       test_len: 20
 
