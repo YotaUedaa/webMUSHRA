@@ -17,7 +17,7 @@ pages:
       name: test
       content: "二つの音声A,Bを聞いてその自然さを評価してください．<br>
                 自然さに差がある場合は評価に差をつけてください．<br>
-                問題は全23問です．<br>
+                問題は全28問です．<br>
                 最初の3問は練習用の問題です．"
 
       enableLooping: true 
@@ -28,7 +28,7 @@ pages:
       stimuli: exp/test1/var_5_active_sigma_500/wav
       stimuli_num: 500
       perturbation_num: 5
-      test_len: 20
+      test_len: 25
 
 
     - type: finish
